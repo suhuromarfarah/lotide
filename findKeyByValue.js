@@ -8,13 +8,11 @@ const assertEqual = function(actual, expected) {
 };
 
 const findKeyByValue = function (object, value) {
-    //let result;
     for (let i in object){
         if (object[i] === (value)){
-            return i
+            return i;
         }
     }
-    return undefined;
 }
 
 const bestTVShowsByGenre = { 
