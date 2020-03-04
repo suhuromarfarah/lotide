@@ -51,9 +51,29 @@ const assertArraysEqual = function(a1, a2)
 
 
 }
+const flatten = function(a1)
+{
+    var flattened = [];
+    for(var a = 0; a < a1.length; a ++)
+    {
+        if(Array.isArray(a1[a]))
+        {
+            console.log(a1[a] + " is an array");
+            for(var b = 0; b<a1[a].length; b ++)
+            {
+                flattened.push(a1[a][b]);
+            }
+        }else{
+            flattened.push(a1[a]);
+        }
+    }
+    return flattened;
+}
+
+console.log(flatten([1, 2, [3, 4], 5, [6]]));
 
 // TEST CODE
-assertEqual(assertArraysEqual([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(assertArraysEqual([1, 2, 3], [3, 2, 1]), false); // => false
-assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]), true);// => true)
-assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", 3]), false); // => false
+//assertEqual(assertArraysEqual([1, 2, 3], [1, 2, 3]), true); // => should PASS
+//assertEqual(assertArraysEqual([1, 2, 3], [3, 2, 1]), false); // => false
+//assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]), true);// => true)
+//assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", 3]), false); // => false

@@ -51,9 +51,20 @@ const assertArraysEqual = function(a1, a2)
 
 
 }
+const without = function(a1, exclude)
+{
+    for(var a = 0 ; a< exclude.length; a++)
+    {
+        for(var b = 0; b< a1.length; b++)
+        {
+            if(a1[b] === exclude[a])
+            {
+                a1.splice(b,1);
+            }
+    }
+}
+return a1;
+}
 
 // TEST CODE
-assertEqual(assertArraysEqual([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(assertArraysEqual([1, 2, 3], [3, 2, 1]), false); // => false
-assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]), true);// => true)
-assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", 3]), false); // => false
+console.log(without(["hello", "world", "lighthouse"], ["lighthouse"]));

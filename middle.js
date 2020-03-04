@@ -51,9 +51,28 @@ const assertArraysEqual = function(a1, a2)
 
 
 }
-
+const middle = function(a1) {
+    if(a1.length <= 2)
+    {
+        console.log("No middle");
+        return "";
+    }else if(a1.length % 2 === 0)
+    {
+        console.log("Middles are:");
+        var middle = [a1[(a1.length)/2 -1], a1[(a1.length/2)]];
+        return middle;
+    
+    }else
+    {
+        console.log("Middle is:");
+        var obvsMiddle = [Math.floor((a1.length)/2) +1];
+        return obvsMiddle;
+    }
+}
 // TEST CODE
-assertEqual(assertArraysEqual([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(assertArraysEqual([1, 2, 3], [3, 2, 1]), false); // => false
-assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]), true);// => true)
-assertEqual(assertArraysEqual(["1", "2", "3"], ["1", "2", 3]), false); // => false
+console.log(middle([1])); // => []
+console.log(middle([1, 2])); // => [])
+console.log(middle([1, 2, 3])) // => [2]
+console.log(middle([1, 2, 3, 4, 5]) )// => [3])
+console.log(middle([1, 2, 3, 4]) );// => [2, 3]
+console.log(middle([1, 2, 3, 4, 5, 6])); // => [3, 4]);
