@@ -1,78 +1,56 @@
-// FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
-    if (actual === expected){
-        console.log(`These two are the same: ${actual} vs ${expected}`)
+// // TEST/ASSERTION FUNCTIONS
+// const eqArrays = function (arr1, arr2) {
+//   let isTrue = null;
+//   if (arr1.length !== arr2.length)
+//     return false
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1[i] !== arr2[i]) {
+//       isTrue = false;
+//     } else {
+//       isTrue = true;
+//     }
+//   }
+//   return isTrue;
+// };
+
+// const assertArraysEqual = function (a, b) {
+//   if (eqArrays(a, b)) {
+//     console.log(`✅✅✅Assertion Passed: ${a} === ${b} `);
+//   } else {
+//     console.log(`❌❌❌Assertion Failed: ${a} === ${b}`);
+//   }
+
+// };
+
+const eqArrays = require("./eqArrays");
+const assertArraysEqual = require("./assertArraysEqual")
+
+// ACTUAL FUNCTION
+
+const middle = function (array) {
+    let result = [];
+    if (array.length % 2 === 0) {
+        result = [array[array.length / 2 - 1], array[array.length / 2]]
+        return result
     } else {
-        console.log(`These two are not the same: ${actual} vs ${expected}`);
-    }
-
-};
-
-const eqArrays = function(a1, a2)
-{
-    if(a1.length === a2.length)
-    {
-        for (var i = 0; i < a1.length; i ++)
-        {
-            if(a1[i] !== a2[i])
-            {
-                return false;
-            }
-        }
-    }
-    else
-    {
-        return false;
-    }
-    return true;
-
-
-}
-const assertArraysEqual = function(a1, a2)
-{
-    if(a1.length === a2.length)
-    {
-        for (var i = 0; i < a1.length; i ++)
-        {
-            if(a1[i] !== a2[i])
-            {
-                console.log("Not the same")
-                return false;
-            }
-        }
-    }
-    else
-    {
-        console.log("Not the same because not the same length")
-        return false;
-    }
-    console.log("The same")
-    return true;
-
-
-}
-const middle = function(a1) {
-    if(a1.length <= 2)
-    {
-        console.log("No middle");
-        return "";
-    }else if(a1.length % 2 === 0)
-    {
-        console.log("Middles are:");
-        var middle = [a1[(a1.length)/2 -1], a1[(a1.length/2)]];
-        return middle;
-    
-    }else
-    {
-        console.log("Middle is:");
-        var obvsMiddle = [Math.floor((a1.length)/2) +1];
-        return obvsMiddle;
+        result =  [array[Math.round(array.length / 2 - 1)]];
+        return result
     }
 }
+// return result;
+
+
 // TEST CODE
-console.log(middle([1])); // => []
-console.log(middle([1, 2])); // => [])
-console.log(middle([1, 2, 3])) // => [2]
-console.log(middle([1, 2, 3, 4, 5]) )// => [3])
-console.log(middle([1, 2, 3, 4]) );// => [2, 3]
-console.log(middle([1, 2, 3, 4, 5, 6])); // => [3, 4]);
+// For arrays with one or two elements
+// assertArraysEqual(middle([1]), [1], []) // => []
+// assertArraysEqual(middle([1, 2]), [1,2], []) // => []
+
+// // For arrays with odd number of elements
+// assertArraysEqual(middle([1, 2, 3]), [2])
+// assertArraysEqual(middle([1, 2, 3, 4, 5]), [3])
+
+// // For arrays with even number of elements
+// assertArraysEqual(middle([1, 2, 3, 4]), [2, 3])
+// assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4])
+
+module.exports = middle;
